@@ -35,15 +35,9 @@ static char menuStateKey;
 }
 
 - (void) setupSideMenuBarButtonItem {
-    if(self.navigationController.menuState == MFSideMenuStateVisible || 
-       [[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
                                                  initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered 
                                                  target:self action:@selector(toggleSideMenuPressed:)] autorelease];
-    } else {
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"] 
-                                         style:UIBarButtonItemStyleBordered target:self action:@selector(backButtonPressed:)] autorelease];
-    }
 }
 
 - (void)setMenuState:(MFSideMenuState)menuState {
