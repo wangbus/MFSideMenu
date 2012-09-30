@@ -5,7 +5,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #define kMenuAnimationDuration 0.2
+#define kMenuAnimationMaxDuration 0.4
 
 typedef enum {
     MFSideMenuStateHidden,
@@ -16,7 +18,12 @@ typedef enum {
 
 @property (nonatomic, assign) MFSideMenuState menuState;
 
-// view controllers should call this on viewDidLoad in order to setup the proper UIBarButtonItem
+// velocity is used in attempt to animate the menu at the speed at which the user swipes it open/closed
+@property (nonatomic, assign) CGFloat velocity;
+
+- (void)setMenuState:(MFSideMenuState)menuState animationDuration:(NSTimeInterval)duration;
+
+// view controllers can call this in order to setup the proper UIBarButtonItem
 - (void) setupSideMenuBarButtonItem;
 
 @end
